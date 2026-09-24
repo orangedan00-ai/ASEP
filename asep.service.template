@@ -1,0 +1,29 @@
+[Unit]
+Description=ASEP - Adaptive Security & Exploitation Agent
+Documentation=https://127.0.0.1:8000/
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=__ASEP_USER__
+Group=__ASEP_GROUP__
+WorkingDirectory=__ASEP_ROOT__
+EnvironmentFile=-__ASEP_ROOT__/.env
+Environment=PYTHONUNBUFFERED=1
+ExecStart=__ASEP_ROOT__/.venv/bin/python -m app
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=15
+
+# ASEP runs with the logged-in user's privileges. It does NOT run as root.
+# Self-modifying mode is disabled by default. The installer adjusts ProtectHome
+# when self-modifying is explicitly enabled so the source checkpoint can be written.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=__ASEP_PROTECT_HOME__
+ReadWritePaths=__ASEP_ROOT__/data __ASEP_ROOT__/logs __ASEP_ROOT__/evidence
+
+[Install]
+WantedBy=multi-user.target

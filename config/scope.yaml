@@ -1,0 +1,21 @@
+engagement:
+  name: home-internal-lab
+
+scope:
+  networks:
+    # CHANGE THIS to your actual authorized internal CIDR.
+    - 192.168.1.0/24
+  hosts: []
+
+# Portable-lab mode: detect the currently connected local IPv4 network
+# without probing it. Active host discovery still requires an explicit
+# confirmation in the ASEP UI/API and is restricted to that local network.
+environment_discovery:
+  enabled: true
+  require_confirmation: false
+
+restrictions:
+  dos: false
+  destructive_testing: false
+  data_modification: false
+  scope_expansion: false

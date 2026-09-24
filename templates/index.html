@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#07111f">
+  <title>ASEP — Universal Security Intelligence Platform</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><div class="brand-mark">A</div><div><strong>ASEP</strong><span>Security Intelligence</span></div></div>
+    <div class="scope-box"><span>SCOPE</span><b id="scopeState">LOADING</b><small id="scopeValue">—</small></div>
+    <nav id="nav">
+      <div class="nav-group"><label>OPERATIONS</label>
+        <button class="nav-item active" data-view="dashboard">⌂ <span>Dashboard</span></button>
+        <button class="nav-item" data-view="missions">◈ <span>Missions</span></button>
+        <button class="nav-item nav-item-danger" data-view="autonomous">⚡ <span>Autonomous Attack</span></button>
+        <button class="nav-item" data-view="targets">◎ <span>Targets</span></button>
+        <button class="nav-item" data-view="network">⌁ <span>Network Discovery</span></button>
+      </div>
+      <div class="nav-group"><label>INTELLIGENCE</label>
+        <button class="nav-item" data-view="intelligence">✦ <span>Intelligence</span></button>
+        <button class="nav-item" data-view="attack-paths">⌘ <span>Attack Paths</span></button>
+        <button class="nav-item" data-view="recon">◌ <span>Recon & OSINT</span></button>
+        <button class="nav-item" data-view="deception">◉ <span>Deception</span></button>
+      </div>
+      <div class="nav-group"><label>SECURITY</label>
+        <button class="nav-item" data-view="security">▦ <span>Security Domains</span></button>
+        <button class="nav-item" data-view="wireless">⌁ <span>Wireless</span></button>
+      </div>
+      <div class="nav-group"><label>EXECUTION</label>
+        <button class="nav-item" data-view="validation">✓ <span>Validation</span></button>
+        <button class="nav-item" data-view="exploitation">⚡ <span>Exploitation</span></button>
+        <button class="nav-item" data-view="sessions">◫ <span>Sessions</span></button>
+        <button class="nav-item" data-view="post-session">↳ <span>Post-Exploitation</span></button>
+      </div>
+      <div class="nav-group"><label>EVIDENCE</label>
+        <button class="nav-item" data-view="findings">! <span>Findings</span></button>
+        <button class="nav-item" data-view="evidence">▤ <span>Evidence</span></button>
+        <button class="nav-item" data-view="timeline">◷ <span>Timeline</span></button>
+        <button class="nav-item" data-view="reports">▥ <span>Reports</span></button>
+      </div>
+      <div class="nav-group"><label>PLATFORM</label>
+        <button class="nav-item" data-view="skills">◇ <span>Skills</span></button>
+        <button class="nav-item" data-view="platform">⚙ <span>Platform Health</span></button>
+        <button class="nav-item" data-view="settings">☷ <span>Settings</span></button>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="icon-btn mobile-menu" id="menuBtn">☰</button>
+      <div class="pipeline" id="pipeline"></div>
+      <div class="top-actions"><span id="activityTicker" class="activity-ticker ready">READY</span><span class="status-dot" id="systemDot"></span><span id="systemState">OPERATIONAL</span><span class="version" id="versionLabel">v2.9.10</span></div>
+    </header>
+
+    <section class="content">
+      <div id="view-dashboard" class="view active">
+        <div class="hero"><div><div class="eyebrow">MISSION CONTROL</div><h1>Security Intelligence</h1><p>Understand the environment, correlate evidence, validate hypotheses, and move through attack paths with scope always visible.</p><span class="pill llm-status-pill" id="dashboardLlmStatus" title="Klik untuk buka Settings">LLM: —</span><span class="llm-sub-state" id="dashboardLlmSub"></span></div><div class="hero-actions"><button class="primary" data-view-jump="missions">Start Mission</button><button class="secondary" id="refreshAll">Refresh Dashboard</button><button class="primary" id="deepScanBtn">RESCAN ALL SERVICES</button></div></div>
+        <section class="panel environment-summary-panel">
+          <div class="panel-head"><div><span class="eyebrow">CURRENT ENVIRONMENT</span><h2>Network Awareness</h2></div><span class="pill" id="awarenessStatus">STARTING</span></div>
+          <div class="environment-summary" id="dashboardEnvironment">
+            <div class="environment-summary-item"><span>NETWORK</span><b>—</b></div>
+            <div class="environment-summary-item"><span>LOCAL IP</span><b>—</b></div>
+            <div class="environment-summary-item"><span>GATEWAY</span><b>—</b></div>
+            <div class="environment-summary-item"><span>DNS</span><b>—</b></div>
+            <div class="environment-summary-item"><span>INTERFACE</span><b>—</b></div>
+          </div>
+        </section>
+        <section class="panel resource-panel">
+          <div class="panel-head"><div><span class="eyebrow">LOCAL RESOURCE</span><h2>ASEP Host Resources</h2></div><span class="pill" id="resourceHost">—</span></div>
+          <div class="resource-grid">
+            <div class="resource-card resource-health" id="resourceCpuCard"><div class="resource-head"><span>CPU</span><b id="resourceCpuValue">—</b></div><div class="resource-bar"><i id="resourceCpuBar"></i></div><small class="resource-status" id="resourceCpuStatus">WAITING</small></div>
+            <div class="resource-card resource-health" id="resourceMemCard"><div class="resource-head"><span>MEMORY</span><b id="resourceMemValue">—</b></div><div class="resource-bar"><i id="resourceMemBar"></i></div><small class="resource-status" id="resourceMemStatus">WAITING</small></div>
+            <div class="resource-card resource-health" id="resourceDiskCard"><div class="resource-head"><span>DISK</span><b id="resourceDiskValue">—</b></div><div class="resource-bar"><i id="resourceDiskBar"></i></div><small class="resource-status" id="resourceDiskStatus">WAITING</small></div>
+            <div class="resource-card resource-net"><div class="resource-head"><span>NETWORK</span><b id="resourceNetValue">—</b></div><small id="resourceNetDetail">Waiting for telemetry…</small></div>
+          </div>
+          <div class="resource-chart-wrap"><canvas id="resourceChart" height="90"></canvas><div class="chart-labels"><span>CPU</span><span>MEM</span><span id="resourceUpdated">—</span></div></div>
+        </section>
+        <div class="metric-grid" id="metrics"></div>
+        <section class="panel live-assets-panel"><div class="panel-head"><div><span class="eyebrow">NETWORK SCAN</span><h2>Live Assets & Observed Services</h2></div><span class="pill" id="liveHostsStatus">0 LIVE</span></div><div class="scan-summary" id="deepScanSummary"><span>Waiting for automatic comprehensive scan after live-host discovery…</span></div><div id="dashboardLiveHosts" class="live-hosts-table"><div class="empty">Waiting for automatic network discovery…</div></div></section>
+        <div class="grid-2">
+          <section class="panel graph-panel"><div class="panel-head"><div><span class="eyebrow">CORRELATION</span><h2>Attack Graph</h2></div><div class="segmented"><button class="seg active" data-graph-mode="asset">ASSET</button><button class="seg" data-graph-mode="attack">ATTACK PATH</button></div></div><div id="attackGraph" class="graph"><div class="empty">No active assets discovered yet.</div></div>
+            <div class="graph-legend"><span><i class="legend-dot in-scope"></i>In Scope</span><span><i class="legend-dot local-candidate"></i>Local Candidate</span><span><i class="legend-dot service"></i>Service</span><span><i class="legend-dot evidence"></i>Evidence</span><span><i class="legend-dot hypothesis-edge"></i>Hypothesis link</span><span class="graph-help">Click an asset for details · Drag to pan</span></div></section>
+          <section class="panel"><div class="panel-head"><div><span class="eyebrow">INTELLIGENCE</span><h2>Next Best Action</h2></div><span class="pill" id="recommendStatus">READY</span></div><div id="recommendation" class="recommendation"></div><div class="panel-foot"><button class="secondary" data-view-jump="intelligence">Open Intelligence</button></div></section>
+        </div>
+        <div class="grid-3">
+          <section class="panel"><div class="panel-head"><h2>Recent Findings</h2><button class="link-btn" data-view-jump="findings">View all</button></div><div id="dashboardFindings" class="list"></div></section>
+          <section class="panel"><div class="panel-head"><h2>Active Sessions</h2><button class="link-btn" data-view-jump="sessions">Manage</button></div><div id="dashboardSessions" class="list"></div></section>
+          <section class="panel"><div class="panel-head"><h2>Activity</h2><button class="link-btn" data-view-jump="timeline">Timeline</button></div><div id="dashboardActivity" class="list"></div></section>
+        </div>
+      </div>
+
+      <div id="view-missions" class="view"><div class="page-title"><div><span class="eyebrow">OPERATIONS</span><h1>Missions</h1><p>Define the objective first. ASEP then recommends capabilities based on evidence and environment.</p></div></div><section class="panel form-panel"><div class="field"><label>Objective</label><input id="missionObjective" placeholder="e.g. Assess web API authorization" value="Understand authorized attack surface"></div><div class="field"><label>Target / Context</label><input id="missionTarget" placeholder="192.168.1.20 or environment"></div><div class="field"><label>Known Evidence</label><textarea id="missionEvidence" placeholder="One observation per line"></textarea></div><button class="primary" id="recommendMission">Recommend Capabilities</button></section><section class="panel"><div class="panel-head"><h2>Recommended Capability</h2></div><div id="missionResult" class="cards"></div></section></div>
+      <div id="view-autonomous" class="view"><div class="page-title"><div><span class="eyebrow">OPERATIONS</span><h1>Autonomous Attack</h1><p>Target yang sudah memiliki informasi cukup untuk serangan autonomous. Setiap step membutuhkan konfirmasi operator. Scope + otorisasi wajib sebelum eksekusi.</p></div><button class="primary" onclick="loadAutonomousTargets()">🔄 Refresh Target</button></div><section class="panel"><div id="autonomousTargetList"><div class="empty">Klik Refresh Target untuk menganalisis inventory.</div></div></section></div>
+        <section class="panel"><div class="panel-head"><div><span class="eyebrow">OPERATOR CONTROL SURFACE</span><h2>Connected Engine Controls</h2></div><span class="pill">SCOPE ENFORCED</span></div>
+          <div class="grid-2">
+            <section class="panel nested-panel"><h3>Tools / Evidence Chain</h3><div class="field"><label>Target</label><input id="toolTarget" placeholder="192.168.1.20"></div><div class="field"><label>Tool / Profile</label><input id="toolName" placeholder="nmap"><input id="toolProfile" placeholder="service"></div><div class="button-row"><button class="secondary" id="toolInventoryBtn">Inventory</button><button class="secondary" id="toolPlanBtn">Plan</button><button class="primary" id="toolRunBtn">Run Tool</button><button class="primary" id="chainRunBtn">Run Evidence Chain</button></div><pre id="toolControlResult" class="result"></pre></section>
+            <section class="panel nested-panel"><h3>Target Path / Adaptive Reasoning</h3><div class="field"><label>Target</label><input id="reasonTarget" placeholder="192.168.1.20"></div><div class="field"><label>Observations / Evidence (JSON array)</label><textarea id="reasonObservations">[]</textarea></div><div class="field"><label>Replan failed actions (JSON array)</label><textarea id="replanFailed">[]</textarea></div><div class="button-row"><button class="secondary" id="passiveDeepDiveBtn">Passive Deep Dive</button><button class="secondary" id="adaptiveAnalyzeBtn">Adaptive Analyze</button><button class="secondary" id="replanBtn">Replan</button></div><pre id="reasonControlResult" class="result"></pre></section>
+            <section class="panel nested-panel"><h3>Windows / Wireless</h3><div class="field"><label>Windows Target</label><input id="windowsTarget" placeholder="192.168.1.20"></div><div class="field"><label>Wireless Interface</label><input id="wirelessInterface" placeholder="wlan0"></div><div class="button-row"><button class="secondary" id="windowsFingerprintBtn">Windows Fingerprint</button><button class="secondary" id="wirelessChainBtn">Wireless Chain</button></div><pre id="platformControlResult" class="result"></pre></section>
+            <section class="panel nested-panel"><h3>Shell / Self-Modifying</h3><div class="field"><label>Shell Command</label><input id="shellCommand" placeholder="ip -br addr"></div><div class="field"><label>Self-Modifying Changes (JSON)</label><textarea id="selfModifyChanges">{}</textarea></div><div class="button-row"><button class="secondary" id="shellRunBtn">Run Local Shell</button><button class="secondary" id="sudoRunBtn">Run via Sudo</button><button class="secondary" id="selfModifyApplyBtn">Apply Self-Modification</button></div><pre id="systemControlResult" class="result"></pre></section>
+          </div>
+        </section>
+      </div>
+
+      <div id="view-targets" class="view"><div class="page-title"><div><span class="eyebrow">OPERATIONS</span><h1>Targets & Active Hosts</h1><p>ASEP detects the network you are currently connected to, discovers active hosts, and keeps them visible as a target inventory.</p></div><button class="primary" id="discoverNetwork">Discover Current Network</button></div>
+        <section class="panel environment-panel"><div class="panel-head"><div><span class="eyebrow">Environment Awareness</span><h2>Current Network</h2></div><button class="secondary" id="refreshEnvironment">Refresh Environment</button></div><div id="environmentCandidates" class="environment-grid"><div class="empty">Detecting local interfaces and network candidates…</div></div></section>
+        <section class="panel"><div class="panel-head"><div><span class="eyebrow">TARGET INVENTORY</span><h2>Active Hosts</h2></div><span class="pill" id="inventoryStatus">READY</span></div><div id="targetsList" class="target-grid"></div></section>
+      </div>
+
+      <div id="view-network" class="view"><div class="page-title"><div><span class="eyebrow">OPERATIONS</span><h1>Network Discovery</h1><p>Host discovery only by default. Service analysis is a separate, explicitly scoped phase.</p></div><button class="secondary" id="refreshNetwork">Refresh Discovery</button></div>
+        <div class="grid-2">
+          <section class="panel form-panel"><h2>Discovery Controls</h2><div class="field"><label>Network Candidate</label><select id="discoveryNetwork"></select></div><div class="field"><label>Method</label><select id="discoveryMethod"><option value="auto">Automatic</option><option value="arp">ARP</option><option value="icmp">ICMP</option><option value="tcp">TCP SYN/ACK</option></select></div><div class="field"><label><input type="checkbox" id="reverseDns"> Reverse DNS enrichment</label></div><div class="warning-box"><b>Host discovery only</b><p>ASEP will not run a service/port scan during this stage. A detected network is treated as a local candidate unless it is already configured in scope.</p></div><button class="primary" id="startDiscovery">START DISCOVERY</button><pre id="discoveryStatusResult" class="result"></pre></section>
+          <section class="panel"><div class="panel-head"><h2>Latest Discovery</h2><span class="pill" id="discoveryRunState">IDLE</span></div><div id="networkMap" class="network-list"></div></section>
+        </div>
+        <section class="panel"><div class="panel-head"><h2>Discovery History</h2><button class="secondary" id="refreshHistory">Refresh</button></div><div id="discoveryHistory" class="list"></div></section>
+      </div>
+
+      <div id="view-intelligence" class="view"><div class="page-title"><div><span class="eyebrow">INTELLIGENCE</span><h1>ASEP Intelligence</h1><p>Evidence-first understanding, readiness gates and the next valid action.</p></div><div class="button-row"><span class="pill" id="intelMode">LOCAL</span><button class="primary" id="runIntelligence">Analyze Current Environment</button></div></div>
+        <section class="panel intel-readiness-panel"><div class="panel-head"><div><h2>Mission Readiness</h2><small class="muted">A stage unlocks only when its prerequisite evidence is sufficient.</small></div><span class="pill" id="intelReadinessState">CHECKING</span></div><div id="intelPipeline" class="intel-pipeline"></div></section>
+        <div class="metric-grid intel-metrics" id="intelMetrics"></div>
+        <div class="grid-2">
+          <section class="panel"><div class="panel-head"><h2>Environment Understanding</h2><span class="pill" id="intelEnvironment">—</span></div><div id="intelUnderstanding" class="intel-understanding"></div></section>
+          <section class="panel"><div class="panel-head"><h2>Next Best Action</h2><span class="pill" id="intelNextStatus">—</span></div><div id="intelNextAction" class="recommendation"></div></section>
+        </div>
+        <div class="grid-2">
+          <section class="panel"><div class="panel-head"><h2>Knowledge Gaps</h2></div><div id="intelGaps" class="list"></div></section>
+          <section class="panel"><div class="panel-head"><h2>Evidence Context</h2><span class="pill" id="intelEvidenceCount">0</span></div><div id="intelEvidence" class="list"></div></section>
+        </div>
+        <section class="panel"><div class="panel-head"><div><h2>Deep Analysis</h2><small class="muted">Local analysis remains usable without a cloud API. Raw engine details are collapsed below.</small></div><span class="pill" id="intelDeepState">NOT RUN</span></div><div id="intelOutput" class="intel-output"><div class="empty">Run analysis when the environment has enough evidence.</div></div></section>
+        <section class="panel"><div class="panel-head"><div><h2>Skill Reasoning</h2><small class="muted">18 evidence-driven skills. Pick one or leave it on Auto to let ASEP select by context.</small></div><span class="pill" id="skillReasonMode">—</span></div><div class="field"><label>Skill</label><select id="skillReasonSelect"><option value="">Auto (pilih otomatis dari konteks)</option></select></div><div class="field"><label>Context (evidence, target, tujuan — bisa diisi otomatis dari halaman lain)</label><textarea id="skillReasonContext" placeholder="Contoh: 192.168.1.10, Apache 2.4.49 di port 80, ada kandidat exploit apache_normalize_path_rce"></textarea></div><button class="primary" id="skillReasonRun" onclick="runSkillReasoning()">Jalankan Reasoning</button><div id="skillReasonResult" class="intel-output"></div></section>
+      </div>
+
+      <div id="view-attack-paths" class="view"><div class="page-title"><div><span class="eyebrow">INTELLIGENCE</span><h1>Attack Paths</h1><p>Evidence-backed relationships. Unknown and hypothesis stages remain explicitly labeled.</p></div><div class="button-row"><button class="secondary" id="refreshPaths">Refresh Paths</button><button class="secondary" onclick="analyzePathsWithSkill()">🧠 Analisis dengan Skill Reasoning</button></div></div><section class="panel"><div id="pathsGraph" class="graph tall"></div></section><div class="grid-2"><section class="panel"><div class="panel-head"><h2>Candidate Paths</h2></div><div id="pathsList" class="list"></div></section><section class="panel"><div class="panel-head"><h2>Path Findings</h2></div><div id="pathFindings" class="list"></div></section></div></div>
+
+      <div id="view-recon" class="view"><div class="page-title"><div><span class="eyebrow">INTELLIGENCE</span><h1>Recon & OSINT</h1><p>Use existing evidence and authorized research capabilities.</p></div></div><div class="grid-2"><section class="panel form-panel"><h2>NVD Research</h2><div class="field"><label>Product / version / keyword</label><input id="nvdQuery" placeholder="e.g. nginx 1.24"></div><button class="secondary" id="runNvd">Research NVD</button></section><section class="panel"><h2>Research Result</h2><div id="nvdResult" class="list"><div class="empty">No research executed.</div></div></section></div></div>
+
+      <div id="view-deception" class="view"><div class="page-title"><div><span class="eyebrow">INTELLIGENCE</span><h1>Deception Analysis</h1><p>Possible decoys remain uncertain until evidence supports a stronger conclusion.</p></div></div><section class="panel form-panel"><div class="field"><label>Target</label><input id="deceptionTarget" placeholder="Target or service"></div><div class="field"><label>Observations</label><textarea id="deceptionObs" placeholder="Observed fingerprints, response anomalies, etc."></textarea></div><button class="secondary" id="runDeception">Assess</button><pre id="deceptionResult" class="result"></pre></section></div>
+
+      <div id="view-security" class="view"><div class="page-title"><div><span class="eyebrow">SECURITY</span><h1>Security Domains</h1><p>Capability families, not tool menus. ASEP selects executors from evidence and objective.</p></div></div><section class="cards capability-cards" id="capabilityCards"></section></div>
+
+      <div id="view-wireless" class="view"><div class="page-title"><div><span class="eyebrow">SECURITY</span><h1>Wireless</h1><p>Wireless discovery and evidence-backed path correlation.</p></div></div><div class="grid-2"><section class="panel"><div class="panel-head"><h2>Interfaces</h2><button class="secondary" id="scanWireless">Scan</button></div><div id="wifiInterfaces" class="list"></div><div id="wifiNetworks" class="list"></div></section><section class="panel"><div class="panel-head"><h2>Wireless Attack Path</h2><button class="secondary" id="wirelessPath">Analyze</button></div><div id="wirelessPathResult" class="list"></div></section></div></div>
+
+      <div id="view-validation" class="view"><div class="page-title"><div><span class="eyebrow">EXECUTION</span><h1>Validation</h1><p>Check evidence and boundaries before execution.</p></div></div><section class="panel form-panel"><div class="field"><label>Target</label><input id="validationTarget" placeholder="192.168.1.20"></div><div class="button-row"><button class="secondary" data-validation-action="validate_services">Validate Services</button><button class="secondary" data-validation-action="deep_recon">Deep Recon</button><button class="secondary" data-validation-action="analyze_attack_path">Analyze Attack Path</button></div><pre id="validationResult" class="result"></pre></section></div>
+
+      <div id="view-exploitation" class="view"><div class="page-title"><div><span class="eyebrow">EXECUTION</span><h1>Exploitation</h1><p>Target Inventory → Service Intelligence → Metasploit candidate search. CHECK → RUN remains enforced.</p></div></div><div class="grid-2"><section class="panel form-panel"><div class="panel-head"><div><h2>Target Service Intelligence</h2><small id="msfIntelStatus">Select METASPLOIT from Target Inventory.</small></div><button class="secondary" id="msfAutoSearch">AUTO SEARCH</button></div><div id="msfTargetSummary" class="kv-list"></div><div id="msfServiceEvidence" class="list"></div><div id="msfModules" class="list"></div></section><section class="panel form-panel exploitation-check-panel"><div class="panel-head"><div><h2>CHECK Module</h2><small>Only remote CHECK-capable modules matched to current Nmap OS/service evidence are shown.</small></div></div><div class="field"><label>Target</label><input id="msfTarget" placeholder="Target Inventory target" readonly></div><div class="field"><label>Module</label><input id="msfModule" placeholder="Select a CHECK-capable module" readonly></div><div class="field"><label>RPORT</label><input id="msfRport" placeholder="From matched service evidence" readonly></div><div class="check-actions"><button class="secondary" id="msfCheck">CHECK</button><button class="danger" id="msfRun" disabled>RUN — LOCKED: CHECK REQUIRED</button></div><div id="msfCheckPanel" class="check-panel"><div class="check-state idle">Select a module and run CHECK.</div></div><details class="check-raw"><summary>Raw CHECK output</summary><pre id="msfResult" class="result"></pre></details></section></div></div>
+      <div id="view-sessions" class="view"><div class="page-title"><div><span class="eyebrow">EXECUTION</span><h1>Sessions</h1><p>Persistent session state with evidence and post-session intelligence.</p></div><div class="button-row"><button class="secondary" id="refreshSessions">Refresh</button><button class="secondary" onclick="loadDemoAccounts()">🗂 Demo Accounts</button></div></div><section class="panel"><div id="sessionsList" class="session-grid"></div></section><section class="panel" id="demoAccountSection"><div class="panel-head"><div><h2>Demo Accounts</h2><small class="muted">Temporary assessment artifacts. Cleanup requires explicit operator confirmation.</small></div></div><div id="demoAccountList"><div class="empty">No demo accounts. Use Post-Session → Create Demo Account after obtaining a session with sufficient privilege.</div></div></section></div>
+
+      <div id="view-post-session" class="view"><div class="page-title"><div><span class="eyebrow">EXECUTION</span><h1>Post-Exploitation Intelligence</h1><p>Use session context to identify evidence-backed next paths.</p></div></div><section class="panel form-panel"><div class="field"><label>Session ID</label><input id="postSessionId" placeholder="1"></div><div class="field"><label>Target</label><input id="postTarget" placeholder="192.168.1.20"></div><div class="field"><label>Platform</label><input id="postPlatform" value="Linux"></div><div class="field"><label>Privilege</label><input id="postPrivilege" value="standard"></div><button class="secondary" id="postAdvice">Generate Advice</button><pre id="postResult" class="result"></pre></section></div>
+
+      <div id="view-findings" class="view"><div class="page-title"><div><span class="eyebrow">EVIDENCE</span><h1>Findings</h1><p>Findings remain traceable to evidence and attack paths.</p></div><button class="secondary" id="refreshFindings">Refresh</button></div><section class="panel"><div id="findingsList" class="finding-grid"></div></section></div>
+
+      <div id="view-evidence" class="view"><div class="page-title"><div><span class="eyebrow">EVIDENCE</span><h1>Evidence</h1><p>Observation, provenance, status and confidence.</p></div><button class="secondary" id="refreshEvidence">Refresh</button></div><section class="panel"><div id="evidenceList" class="evidence-list"></div></section></div>
+
+      <div id="view-timeline" class="view"><div class="page-title"><div><span class="eyebrow">EVIDENCE</span><h1>Timeline</h1><p>Audit activity and execution history.</p></div></div><section class="panel"><div id="timelineList" class="timeline"></div></section></div>
+
+      <div id="view-reports" class="view"><div class="page-title"><div><span class="eyebrow">EVIDENCE</span><h1>Reports</h1><p>Reporting foundation built from findings, evidence and attack paths.</p></div></div><section class="panel"><div class="empty large">Report generation UI is prepared for the evidence model. No report is claimed until evidence is present.</div></section></div>
+
+      <div id="view-skills" class="view"><div class="page-title"><div><span class="eyebrow">PLATFORM</span><h1>Skills</h1><p>Versioned capability inventory used by the intelligence engine.</p></div></div><section class="panel"><div id="skillsList" class="cards"></div></section></div>
+
+      <div id="view-platform" class="view"><div class="page-title"><div><span class="eyebrow">PLATFORM</span><h1>Platform Health</h1><p>Runtime, resource and self-healing status.</p></div></div><div class="grid-2"><section class="panel"><div id="healthCards" class="metric-grid compact"></div></section><section class="panel"><div class="panel-head"><h2>Self-Healing</h2><button class="secondary" id="refreshHealth">Refresh</button></div><pre id="healResult" class="result"></pre></section></div></div>
+
+      <div id="view-settings" class="view"><div class="page-title"><div><span class="eyebrow">PLATFORM</span><h1>Settings</h1><p>Runtime configuration and safety controls.</p></div></div><div class="grid-2"><section class="panel"><h2>Runtime</h2><div id="settingsRuntime" class="kv-list"></div><div class="field" style="margin-top:12px"><label>LLM mode</label><div class="button-row"><select id="llmModeSelect"><option value="auto">Auto (cloud → claude_code → local)</option><option value="cloud">Cloud (OpenAI)</option><option value="claude_code">Claude Code (your subscription)</option><option value="local">Local (Ollama)</option></select><button class="secondary" id="llmModeApply" onclick="applyLlmMode()">Terapkan</button></div><small id="llmModeNote" class="hint"></small></div><div class="kv-list" id="claudeUsagePanel" style="margin-top:8px"></div></section><section class="panel"><h2>Self-Modifying</h2><div class="warning-box"><b>Disabled by default</b><p>Preview → Approval → Checkpoint → Patch → Compile → Test → Activate. The UX does not bypass this lifecycle.</p></div><div class="field"><label>Preview changes JSON</label><textarea id="modifyChanges" placeholder='{"app/example.py":"..."}'></textarea></div><button class="secondary" id="modifyPreview">Preview</button><pre id="modifyResult" class="result"></pre></section></div></div>
+    </section>
+  </main>
+</div>
+<div id="detailModal" class="modal-backdrop" aria-hidden="true">
+  <div class="detail-modal" role="dialog" aria-modal="true">
+    <div class="panel-head"><div><span class="eyebrow" id="detailEyebrow">DETAIL</span><h2 id="detailTitle">Details</h2></div><button class="secondary" id="closeDetail">Close</button></div>
+    <div id="detailBody" class="detail-body"></div>
+  </div>
+</div>
+<div id="toast" class="toast"></div>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{
+  "module": "exploit/...",
+  "platforms": [
+    "windows",
+    "linux",
+    "unix",
+    "network",
+    "embedded",
+    "other"
+  ],
+  "services": [
+    "service"
+  ],
+  "architectures": [
+    "x86",
+    "x64",
+    "arm",
+    "unknown"
+  ],
+  "supports_check": true,
+  "expected_outcomes": [
+    "session",
+    "information_disclosure",
+    "other"
+  ],
+  "session_types": [
+    "meterpreter",
+    "shell"
+  ],
+  "prerequisites": [],
+  "evidence_required": true,
+  "requires_scope_and_approval": true
+}

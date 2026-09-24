@@ -1,0 +1,758 @@
+{
+  "schema_version": "1.0",
+  "asep_skill_library": "v1.0",
+  "total_skills": 75,
+  "additive": true,
+  "skills": [
+    {
+      "skill_number": 1,
+      "skill_id": "evidence_intelligence",
+      "name": "Evidence Intelligence",
+      "version": "1.0",
+      "category": "evidence",
+      "file": "skills/01-evidence_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 2,
+      "skill_id": "asset_service_intelligence",
+      "name": "Asset & Service Intelligence",
+      "version": "1.0",
+      "category": "discovery",
+      "file": "skills/02-asset_service_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 3,
+      "skill_id": "vulnerability_correlation",
+      "name": "Vulnerability Correlation",
+      "version": "1.0",
+      "category": "vulnerability",
+      "file": "skills/03-vulnerability_correlation.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 4,
+      "skill_id": "attack_path_intelligence",
+      "name": "Attack Path Intelligence",
+      "version": "1.0",
+      "category": "attack_path",
+      "file": "skills/04-attack_path_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 5,
+      "skill_id": "adaptive_replanning",
+      "name": "Adaptive Replanning",
+      "version": "1.0",
+      "category": "planning",
+      "file": "skills/05-adaptive_replanning.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 6,
+      "skill_id": "failure_intelligence",
+      "name": "Failure Intelligence",
+      "version": "1.0",
+      "category": "resilience",
+      "file": "skills/06-failure_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 7,
+      "skill_id": "capability_based_tool_selection",
+      "name": "Capability-Based Tool Selection",
+      "version": "1.0",
+      "category": "orchestration",
+      "file": "skills/07-capability_based_tool_selection.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 8,
+      "skill_id": "metasploit_intelligence",
+      "name": "Metasploit Intelligence",
+      "version": "1.0",
+      "category": "exploitation",
+      "file": "skills/08-metasploit_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 9,
+      "skill_id": "session_intelligence",
+      "name": "Session Intelligence",
+      "version": "1.0",
+      "category": "session",
+      "file": "skills/09-session_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 10,
+      "skill_id": "network_intelligence",
+      "name": "Network Intelligence",
+      "version": "1.0",
+      "category": "network",
+      "file": "skills/10-network_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 11,
+      "skill_id": "web_api_intelligence",
+      "name": "Web & API Intelligence",
+      "version": "1.0",
+      "category": "web_api",
+      "file": "skills/11-web_api_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 12,
+      "skill_id": "ad_identity_intelligence",
+      "name": "AD & Identity Intelligence",
+      "version": "1.0",
+      "category": "identity",
+      "file": "skills/12-ad_identity_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 13,
+      "skill_id": "cloud_intelligence",
+      "name": "Cloud Intelligence",
+      "version": "1.0",
+      "category": "cloud",
+      "file": "skills/13-cloud_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 14,
+      "skill_id": "wireless_intelligence",
+      "name": "Wireless Intelligence",
+      "version": "1.0",
+      "category": "wireless",
+      "file": "skills/14-wireless_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 15,
+      "skill_id": "source_code_security",
+      "name": "Source Code Security",
+      "version": "1.0",
+      "category": "code_security",
+      "file": "skills/15-source_code_security.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 16,
+      "skill_id": "osint_intelligence",
+      "name": "OSINT Intelligence",
+      "version": "1.0",
+      "category": "osint",
+      "file": "skills/16-osint_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 17,
+      "skill_id": "risk_intelligence",
+      "name": "Risk Intelligence",
+      "version": "1.0",
+      "category": "risk",
+      "file": "skills/17-risk_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 18,
+      "skill_id": "reporting_intelligence",
+      "name": "Reporting Intelligence",
+      "version": "1.0",
+      "category": "reporting",
+      "file": "skills/18-reporting_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 19,
+      "skill_id": "mission_planning_intelligence",
+      "name": "Mission Planning Intelligence",
+      "version": "1.0",
+      "category": "planning",
+      "file": "skills/19-mission_planning_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 20,
+      "skill_id": "target_prioritization",
+      "name": "Target Prioritization",
+      "version": "1.0",
+      "category": "planning",
+      "file": "skills/20-target_prioritization.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 21,
+      "skill_id": "discovery_strategy",
+      "name": "Discovery Strategy",
+      "version": "1.0",
+      "category": "discovery",
+      "file": "skills/21-discovery_strategy.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 22,
+      "skill_id": "technology_fingerprinting",
+      "name": "Technology Fingerprinting",
+      "version": "1.0",
+      "category": "fingerprinting",
+      "file": "skills/22-technology_fingerprinting.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 23,
+      "skill_id": "evidence_conflict_resolution",
+      "name": "Evidence Conflict Resolution",
+      "version": "1.0",
+      "category": "evidence",
+      "file": "skills/23-evidence_conflict_resolution.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 24,
+      "skill_id": "hypothesis_management",
+      "name": "Hypothesis Management",
+      "version": "1.0",
+      "category": "reasoning",
+      "file": "skills/24-hypothesis_management.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 25,
+      "skill_id": "information_gain_analysis",
+      "name": "Information Gain Analysis",
+      "version": "1.0",
+      "category": "reasoning",
+      "file": "skills/25-information_gain_analysis.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 26,
+      "skill_id": "attack_surface_mapping",
+      "name": "Attack Surface Mapping",
+      "version": "1.0",
+      "category": "attack_surface",
+      "file": "skills/26-attack_surface_mapping.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 27,
+      "skill_id": "exposure_analysis",
+      "name": "Exposure Analysis",
+      "version": "1.0",
+      "category": "exposure",
+      "file": "skills/27-exposure_analysis.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 28,
+      "skill_id": "authentication_intelligence",
+      "name": "Authentication Intelligence",
+      "version": "1.0",
+      "category": "identity",
+      "file": "skills/28-authentication_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 29,
+      "skill_id": "authorization_intelligence",
+      "name": "Authorization Intelligence",
+      "version": "1.0",
+      "category": "identity",
+      "file": "skills/29-authorization_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 30,
+      "skill_id": "privilege_escalation_intelligence",
+      "name": "Privilege Escalation Intelligence",
+      "version": "1.0",
+      "category": "post_exploitation",
+      "file": "skills/30-privilege_escalation_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 31,
+      "skill_id": "lateral_movement_intelligence",
+      "name": "Lateral Movement Intelligence",
+      "version": "1.0",
+      "category": "post_exploitation",
+      "file": "skills/31-lateral_movement_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 32,
+      "skill_id": "pivot_intelligence",
+      "name": "Pivot Intelligence",
+      "version": "1.0",
+      "category": "network",
+      "file": "skills/32-pivot_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 33,
+      "skill_id": "defensive_control_intelligence",
+      "name": "Defensive Control Intelligence",
+      "version": "1.0",
+      "category": "defense",
+      "file": "skills/33-defensive_control_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 34,
+      "skill_id": "technique_effectiveness",
+      "name": "Technique Effectiveness",
+      "version": "1.0",
+      "category": "reasoning",
+      "file": "skills/34-technique_effectiveness.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 35,
+      "skill_id": "mission_memory",
+      "name": "Mission Memory",
+      "version": "1.0",
+      "category": "memory",
+      "file": "skills/35-mission_memory.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 36,
+      "skill_id": "stagnation_intelligence",
+      "name": "Stagnation Intelligence",
+      "version": "1.0",
+      "category": "planning",
+      "file": "skills/36-stagnation_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 37,
+      "skill_id": "decision_explanation",
+      "name": "Decision Explanation",
+      "version": "1.0",
+      "category": "explainability",
+      "file": "skills/37-decision_explanation.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 38,
+      "skill_id": "evidence_provenance",
+      "name": "Evidence Provenance",
+      "version": "1.0",
+      "category": "evidence",
+      "file": "skills/38-evidence_provenance.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 39,
+      "skill_id": "attack_strategy_intelligence",
+      "name": "Attack Strategy Intelligence",
+      "version": "1.0",
+      "category": "exploitation",
+      "file": "skills/39-attack_strategy_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 40,
+      "skill_id": "initial_access_intelligence",
+      "name": "Initial Access Intelligence",
+      "version": "1.0",
+      "category": "exploitation",
+      "file": "skills/40-initial_access_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 41,
+      "skill_id": "exploit_path_analysis",
+      "name": "Exploit Path Analysis",
+      "version": "1.0",
+      "category": "exploitation",
+      "file": "skills/41-exploit_path_analysis.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 42,
+      "skill_id": "exploit_prerequisite_analysis",
+      "name": "Exploit Prerequisite Analysis",
+      "version": "1.0",
+      "category": "exploitation",
+      "file": "skills/42-exploit_prerequisite_analysis.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 43,
+      "skill_id": "exploit_selection_intelligence",
+      "name": "Exploit Selection Intelligence",
+      "version": "1.0",
+      "category": "exploitation",
+      "file": "skills/43-exploit_selection_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 44,
+      "skill_id": "exploit_validation_intelligence",
+      "name": "Exploit Validation Intelligence",
+      "version": "1.0",
+      "category": "exploitation",
+      "file": "skills/44-exploit_validation_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 45,
+      "skill_id": "post_exploitation_intelligence",
+      "name": "Post-Exploitation Intelligence",
+      "version": "1.0",
+      "category": "post_exploitation",
+      "file": "skills/45-post_exploitation_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 46,
+      "skill_id": "privilege_path_analysis",
+      "name": "Privilege Path Analysis",
+      "version": "1.0",
+      "category": "post_exploitation",
+      "file": "skills/46-privilege_path_analysis.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 47,
+      "skill_id": "credential_path_intelligence",
+      "name": "Credential Path Intelligence",
+      "version": "1.0",
+      "category": "post_exploitation",
+      "file": "skills/47-credential_path_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 48,
+      "skill_id": "access_path_recovery",
+      "name": "Access Path Recovery",
+      "version": "1.0",
+      "category": "session",
+      "file": "skills/48-access_path_recovery.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 49,
+      "skill_id": "attack_chain_composition",
+      "name": "Attack Chain Composition",
+      "version": "1.0",
+      "category": "attack_chain",
+      "file": "skills/49-attack_chain_composition.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 50,
+      "skill_id": "attack_chain_validation",
+      "name": "Attack Chain Validation",
+      "version": "1.0",
+      "category": "attack_chain",
+      "file": "skills/50-attack_chain_validation.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 51,
+      "skill_id": "defense_response_analysis",
+      "name": "Defense Response Analysis",
+      "version": "1.0",
+      "category": "defense",
+      "file": "skills/51-defense_response_analysis.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 52,
+      "skill_id": "technique_fallback_intelligence",
+      "name": "Technique Fallback Intelligence",
+      "version": "1.0",
+      "category": "planning",
+      "file": "skills/52-technique_fallback_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 53,
+      "skill_id": "exploit_result_interpreter",
+      "name": "Exploit Result Interpreter",
+      "version": "1.0",
+      "category": "exploitation",
+      "file": "skills/53-exploit_result_interpreter.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 54,
+      "skill_id": "objective_completion_intelligence",
+      "name": "Objective Completion Intelligence",
+      "version": "1.0",
+      "category": "mission",
+      "file": "skills/54-objective_completion_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 55,
+      "skill_id": "attack_learning_intelligence",
+      "name": "Attack Learning Intelligence",
+      "version": "1.0",
+      "category": "learning",
+      "file": "skills/55-attack_learning_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 56,
+      "skill_id": "autonomous_attack_orchestrator",
+      "name": "Autonomous Attack Orchestrator",
+      "version": "1.0",
+      "category": "orchestration",
+      "file": "skills/56-autonomous_attack_orchestrator.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 57,
+      "skill_id": "session_lifecycle_intelligence",
+      "name": "Session Lifecycle Intelligence",
+      "version": "1.0",
+      "category": "session",
+      "file": "skills/57-session_lifecycle_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 58,
+      "skill_id": "post_session_recon_intelligence",
+      "name": "Post-Session Recon Intelligence",
+      "version": "1.0",
+      "category": "session",
+      "file": "skills/58-post_session_recon_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 59,
+      "skill_id": "privilege_context_intelligence",
+      "name": "Privilege Context Intelligence",
+      "version": "1.0",
+      "category": "post_exploitation",
+      "file": "skills/59-privilege_context_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 60,
+      "skill_id": "identity_context_intelligence",
+      "name": "Identity Context Intelligence",
+      "version": "1.0",
+      "category": "identity",
+      "file": "skills/60-identity_context_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 61,
+      "skill_id": "local_attack_surface_intelligence",
+      "name": "Local Attack Surface Intelligence",
+      "version": "1.0",
+      "category": "attack_surface",
+      "file": "skills/61-local_attack_surface_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 62,
+      "skill_id": "network_pivot_intelligence",
+      "name": "Network Pivot Intelligence",
+      "version": "1.0",
+      "category": "network",
+      "file": "skills/62-network_pivot_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 63,
+      "skill_id": "trust_relationship_intelligence",
+      "name": "Trust Relationship Intelligence",
+      "version": "1.0",
+      "category": "identity",
+      "file": "skills/63-trust_relationship_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 64,
+      "skill_id": "credential_exposure_intelligence",
+      "name": "Credential Exposure Intelligence",
+      "version": "1.0",
+      "category": "post_exploitation",
+      "file": "skills/64-credential_exposure_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 65,
+      "skill_id": "persistence_assessment_intelligence",
+      "name": "Persistence Assessment Intelligence",
+      "version": "1.0",
+      "category": "post_exploitation",
+      "file": "skills/65-persistence_assessment_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 66,
+      "skill_id": "persistence_validation_intelligence",
+      "name": "Persistence Validation Intelligence",
+      "version": "1.0",
+      "category": "post_exploitation",
+      "file": "skills/66-persistence_validation_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 67,
+      "skill_id": "access_survivability_intelligence",
+      "name": "Access Survivability Intelligence",
+      "version": "1.0",
+      "category": "session",
+      "file": "skills/67-access_survivability_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 68,
+      "skill_id": "session_recovery_intelligence",
+      "name": "Session Recovery Intelligence",
+      "version": "1.0",
+      "category": "session",
+      "file": "skills/68-session_recovery_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 69,
+      "skill_id": "persistence_detection_intelligence",
+      "name": "Persistence Detection Intelligence",
+      "version": "1.0",
+      "category": "defense",
+      "file": "skills/69-persistence_detection_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 70,
+      "skill_id": "cleanup_intelligence",
+      "name": "Cleanup Intelligence",
+      "version": "1.0",
+      "category": "post_exploitation",
+      "file": "skills/70-cleanup_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 71,
+      "skill_id": "access_expiration_intelligence",
+      "name": "Access Expiration Intelligence",
+      "version": "1.0",
+      "category": "session",
+      "file": "skills/71-access_expiration_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 72,
+      "skill_id": "post_exploitation_orchestrator",
+      "name": "Post-Exploitation Orchestrator",
+      "version": "1.0",
+      "category": "orchestration",
+      "file": "skills/72-post_exploitation_orchestrator.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 73,
+      "skill_id": "action_readiness_intelligence",
+      "name": "Action Readiness Intelligence",
+      "version": "1.0",
+      "category": "orchestration",
+      "file": "skills/73-action_readiness_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 74,
+      "skill_id": "autonomous_mission_memory_intelligence",
+      "name": "Autonomous Mission Memory Intelligence",
+      "version": "1.0",
+      "category": "memory",
+      "file": "skills/74-autonomous_mission_memory_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    },
+    {
+      "skill_number": 75,
+      "skill_id": "broad_exploit_discovery_intelligence",
+      "name": "Broad Exploit Discovery Intelligence",
+      "version": "1.0",
+      "category": "exploitation",
+      "file": "skills/75-broad_exploit_discovery_intelligence.md",
+      "status": "enabled",
+      "source": "asep_skill_library"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "boot_id": "91df372c-628b-4f27-b3dd-9ccfdca4da63",
+  "gateway": "10.248.22.159",
+  "interface": "wlan0",
+  "kind": "wifi",
+  "local_ip": "10.248.22.250",
+  "network": "10.248.22.0/24"
+}
