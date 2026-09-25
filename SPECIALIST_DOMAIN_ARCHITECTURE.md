@@ -387,3 +387,289 @@ The final architectural relationship is:
 **Architectural statement:**
 
 > **ASEP owns the mission. Specialists own domain expertise. Skills provide capabilities. Tools execute them. Evidence returns to ASEP. ASEP integrates the resulting intelligence and determines the next step.**
+
+
+## 12. Agentic AI Runtime — Provider-Agnostic Specialist Agents
+
+Specialist Domains are intended to be powered by **agentic AI runtimes**, but a Specialist Agent must never be defined as belonging to a single AI provider.
+
+The architectural rule is:
+
+> **Agent identity belongs to ASEP. The AI provider is an interchangeable runtime resource.**
+
+Therefore the Specialist Agent definition contains its:
+
+- identity
+- domain
+- mission/capability contract
+- skills
+- tools
+- evidence contract
+- memory/state interface
+- planning/replanning interface
+- validation contract
+
+It does **not** contain a permanent dependency on Claude, OpenAI, Gemini, Ollama, or another provider.
+
+### 12.1 Provider-Neutral Agent Layer
+
+```text
+                    ASEP
+                     │
+              Agent Orchestrator
+                     │
+             Specialist Agent
+                     │
+          Agent Runtime Interface
+                     │
+        ┌────────────┼────────────┐
+        ▼            ▼            ▼
+   Claude Code     OpenAI       Local LLM
+        │            │            │
+        └────────────┼────────────┘
+                     │
+             Agent Result / State
+                     │
+                     ▼
+                    ASEP
+```
+
+The Specialist Agent therefore depends on an **Agent Runtime Interface**, not directly on a provider SDK.
+
+### 12.2 Multiple Agent Runtimes
+
+ASEP should be able to use different agent runtimes for different specialist domains or tasks.
+
+Examples:
+
+- Claude Code / Claude-based runtime
+- OpenAI/Codex-based runtime
+- Gemini-based runtime
+- local agent runtime
+- open-source/self-hosted agent runtime
+- future agent runtimes discovered or added later
+
+The architecture must also support multiple runtimes simultaneously.
+
+For example:
+
+```text
+MISSION
+  │
+  ▼
+ASEP ORCHESTRATOR
+  │
+  ├── Metasploit Specialist
+  │      └── Agent Runtime A
+  │
+  ├── WiFi Specialist
+  │      └── Agent Runtime B
+  │
+  ├── Collection Specialist
+  │      └── Local Agent Runtime
+  │
+  └── Persistence Specialist
+         └── Agent Runtime C
+```
+
+The specialist definition remains unchanged if its underlying runtime changes.
+
+### 12.3 Agent Runtime Selection
+
+Agent selection should be resolved dynamically from capability and runtime metadata rather than hardcoded provider preference.
+
+Conceptually:
+
+```text
+OBJECTIVE
+   ↓
+CAPABILITY
+   ↓
+SPECIALIST DOMAIN
+   ↓
+AGENT REQUIREMENTS
+   │
+   ├─ reasoning complexity
+   ├─ tool requirements
+   ├─ context requirements
+   ├─ latency requirements
+   ├─ local/offline requirement
+   ├─ data handling requirement
+   └─ runtime availability
+   ↓
+AGENT RUNTIME ROUTER
+   ↓
+Candidate Runtime(s)
+   ↓
+Select / Fallback / Parallelize
+   ↓
+SPECIALIST AGENT
+   ↓
+Evidence / Outcome
+   ↓
+ASEP
+```
+
+The router may select one runtime, use a fallback, or invoke multiple specialist runtimes when the task benefits from independent reasoning.
+
+### 12.4 No Single Provider as the Brain
+
+ASEP must not become:
+
+```text
+ASEP = Claude Agent
+```
+
+or:
+
+```text
+ASEP = OpenAI Agent
+```
+
+Instead:
+
+```text
+ASEP
+ ├── Mission
+ ├── World State
+ ├── Reasoning State
+ ├── Memory
+ ├── Evidence
+ ├── Skill Registry
+ ├── Specialist Registry
+ ├── Agent Runtime Registry
+ ├── Orchestrator
+ └── Provider / Runtime Adapters
+```
+
+This preserves the principle:
+
+> **ASEP has AI — an AI/provider does not own ASEP.**
+
+### 12.5 Agent Runtime Registry
+
+A future Agent Runtime Registry should describe:
+
+- runtime_id
+- runtime_name
+- provider
+- model(s)
+- runtime_type
+- supported protocols
+- supported capabilities
+- tool/MCP interfaces
+- context limits
+- local/cloud status
+- availability/health
+- latency characteristics
+- cost metadata where applicable
+- fallback runtimes
+- version
+- provenance
+- health history
+
+The Specialist Agent refers to runtime capabilities rather than vendor identity.
+
+### 12.6 Agent Runtime Failover
+
+Provider/runtime failure must not automatically terminate the Specialist Domain's reasoning.
+
+```text
+SPECIALIST TASK
+      ↓
+PRIMARY RUNTIME
+      ↓
+failure / unavailable / degraded
+      ↓
+RUNTIME ROUTER
+      ↓
+ALTERNATIVE RUNTIME
+      ↓
+RESUME FROM PERSISTED AGENT STATE
+      ↓
+SPECIALIST RESULT
+      ↓
+ASEP
+```
+
+The persisted state must allow a runtime switch without losing:
+
+- mission context
+- specialist context
+- hypothesis
+- plan
+- task state
+- evidence
+- previous outcomes
+- failed approaches
+- replanning state
+
+### 12.7 Runtime Independence
+
+Agent prompts, specialist contracts, mission state, evidence schemas, and ASEP reasoning state must remain provider-neutral.
+
+Provider-specific adaptation belongs only in the adapter/runtime layer.
+
+```text
+SPECIALIST LOGIC
+      │
+      ├── provider-neutral
+      │
+      ▼
+AGENT RUNTIME INTERFACE
+      │
+      ├── Claude adapter
+      ├── OpenAI adapter
+      ├── Gemini adapter
+      ├── Local adapter
+      └── Future adapters
+```
+
+Changing an AI provider should therefore be a configuration/runtime change, not a rewrite of the Specialist Domain.
+
+### 12.8 Agentic Specialist Collaboration
+
+Specialists may delegate subtasks to other specialists through ASEP rather than directly coupling themselves to another provider.
+
+```text
+Collection Specialist
+        │
+        │ request capability
+        ▼
+       ASEP
+        │
+        ▼
+WiFi Specialist
+        │
+        ▼
+Agent Runtime selected independently
+        │
+        ▼
+Evidence
+        │
+        ▼
+ASEP World State
+        │
+        ▼
+Collection Specialist continues
+```
+
+This keeps specialist-to-specialist collaboration provider-neutral and centrally observable.
+
+### 12.9 Current Main Plan Boundary
+
+This section records the target architecture only.
+
+It does **not** yet implement:
+
+- Agent Runtime Registry
+- provider failover
+- multi-agent parallel execution
+- autonomous specialist creation
+- runtime migration
+- new specialist execution paths
+
+Those implementation items remain future roadmap work and must not be used to declare the current Main Plan complete.
+
+The current Main Plan completion gate remains the migration/schema-version/restore framework.
+
