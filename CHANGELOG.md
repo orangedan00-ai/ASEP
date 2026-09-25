@@ -1,3 +1,13 @@
+## Unreleased — Specialist Domain Architecture
+
+- Added `SPECIALIST_DOMAIN_ARCHITECTURE.md` as the official architectural definition for ASEP Specialist Domains.
+- Establishes the hierarchy: Objective → Capability → Specialist Domain → Skill → Tool/Executor → Evidence → ASEP World State → Reasoning/Learning/Replanning.
+- Defines Metasploit, WiFi Attack, Persistence, and Traffic Collection & Interception Assessment (Collection) as initial specialist-domain examples.
+- Clarifies that Collection is a specialist domain for authorized traffic observation, interception assessment, packet capture and protocol analysis, including tooling such as Ettercap, MITM tooling, ssldump, Wireshark/tshark and tcpdump.
+- Keeps specialist logic separated while ASEP remains the central controller/orchestrator and integrates cross-specialist evidence.
+- Records alternative capability/tool resolution as a future architectural behavior without activating new execution paths.
+- Does not close the current Main Plan or start the Evolution Roadmap.
+
 ## v2.9.33 — Stage 2 Batch 1: Parallel Deep Scan + Internet-Aware LLM + Provider Health
 Source inspection (Phase 1) confirmed the implementation gaps before any code was changed. Three concrete problems found and fixed:
 
